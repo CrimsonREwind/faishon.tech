@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" data-theme="lofi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <title>Faishon - AI Sustainable Fashion</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="{% static 'js/load-theme.js' %}"></script>
+
+    <!-- Import mapping for Three.js -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <style>
+        html { scrollbar-width: none; } /* Firefox */
+        body { -ms-overflow-style: none; } /* IE and Edge */
+        body::-webkit-scrollbar, body::-webkit-scrollbar-button { display: none; }
+    </style>
+</head>
+<body>
+
+
+
+<!-- Navbar-->
+
+
+
+
+<!-- Transparent Navigation Bar -->
+    <nav class="navbar absolute top-0 w-full z-[70] px-4 sm:px-8 py-4 bg-transparent ">
+        <div class="flex-1">
+            <a class="btn btn-ghost text-2xl font-bold tracking-tighter uppercase relative z-[70]">faishon</a>
+        </div>
+        <!-- Desktop Nav -->
+      <div class="hidden lg:flex flex-1 justify-center relative z-[70]">
+            <ul class="menu menu-horizontal px-1 font-medium text-lg">
+                <li><a href="#sustainability">Sustainability</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+      </div>
+      <div class="hidden lg:flex flex-1 justify-end relative z-[70]">
+        <a href="{% url 'login' %}" class="btn btn-primary btn-sm px-6 uppercase tracking-wider h-10 mt-1">Login</a>
+        </div>
+        <!-- Mobile Nav Toggle -->
+      <div class="flex-1 flex justify-end lg:hidden relative z-[70]">
+            <button id="mobile-menu-btn" class="btn btn-square btn-ghost">
+                <i data-lucide="menu" id="mobile-menu-icon" class="w-8 h-8"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Full Screen Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-base-100/95 text-base-content backdrop-blur-md z-[60] flex flex-col items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+      <ul class="flex flex-col text-center text-4xl gap-8 font-bold tracking-tighter w-full p-4">
+        <li><a href="#sustainability" class="hover:text-primary transition-colors">Sustainability</a></li>
+        <li><a href="#features" class="hover:text-primary transition-colors">Features</a></li>
+        <li><a href="#contact" class="hover:text-primary transition-colors">Contact</a></li>
+            <li class="mt-4 flex justify-center w-full"><a href="{% url 'login' %}" class="btn btn-primary btn-lg w-[60%] sm:w-[40%] text-xl uppercase tracking-wider">Login</a></li>
+        </ul>
+    </div>
+
+<!-- Hero Section with Three.js Integration -->
+<div id="three-hero-section" class="relative w-full h-[90vh] md:h-screen overflow-hidden bg-base-200 text-base-content">
+  <!-- Interactive 3D Canvas Container -->
+  <div id="three-hero-container" class="absolute inset-0 z-0 pointer-events-auto"></div>
+
+  <!-- Content gradient overlay for mobile readability -->
+  <div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-r from-base-200/90 via-base-200/50 to-transparent md:from-transparent md:via-transparent"></div>
+  <div class="absolute inset-0 z-0 pointer-events-none bg-gradient-to-t from-base-200 via-base-200/40 md:hidden md:from-transparent"></div>
+
+  <!-- Text Overlay -->
+      <header class="relative w-full h-screen">
+        <div class="absolute top-1/2 left-[5%] -translate-y-1/2 pointer-events-none z-10 max-w-lg">
+            <h1 class="text-6xl font-bold mb-4 tracking-tighter leading-tight">Waste to<br>Wearable</h1>
+            <p class="text-xl mb-8 text-secondary-600 leading-relaxed pr-8">Experience the transformation of discarded fabrics into modern, premium garments. Circular fashion starts here.</p>
+            <a href="{% url 'home' %}" class="btn btn-primary pointer-events-auto uppercase tracking-widest gap-2 mr-2">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+                Upcycle
+            </a>
+
+            <a href="{% url 'store' %}" class="btn btn-neutral pointer-events-auto uppercase tracking-widest gap-2">
+                <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                Shop Collection
+            </a>
+        </div>
+    </header>
+</div>
+
+<!-- Main Content Areas -->
+<div class="bg-base-100 text-base-content">
+
+      <section id="sustainability" class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-4xl font-bold mb-4">Why Sustainability Matters</h2>
+      <p class="text-lg opacity-80">The fashion industry is one of the planet's biggest polluters. By upcycling and extending the life of your garments, we can fight these alarming global statistics together.</p>
+    </div>
+
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="flex flex-col items-center bg-base-200 p-6 rounded-lg shadow-md">
+        <div class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-6 text-primary">
+          <i data-lucide="leaf" class="w-10 h-10"></i>
+        </div>
+        <h3 class="text-5xl font-bold mb-2">92M</h3>
+        <p class="text-lg opacity-80">Tons of textile waste globally each year</p>
+      </div>
+
+      <div class="flex flex-col items-center bg-base-200 p-6 rounded-lg shadow-md">
+        <div class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-6 text-primary">
+          <i data-lucide="droplet" class="w-10 h-10"></i>
+        </div>
+        <h3 class="text-5xl font-bold mb-2">2,700L</h3>
+        <p class="text-lg opacity-80">Water to make a single cotton t-shirt</p>
+      </div>
+
+      <div class="flex flex-col items-center bg-base-200 p-6 rounded-lg shadow-md">
+        <div class="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mb-6 text-primary">
+          <i data-lucide="sun" class="w-10 h-10"></i>
+        </div>
+        <h3 class="text-5xl font-bold mb-2">10%</h3>
+        <p class="text-lg opacity-80">Of global greenhouse emissions</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider max-w-6xl mx-auto opacity-30"></div>
+
+  <!-- Project Features Section -->
+  <section id="features" class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-4xl font-bold mb-4">Core Features</h2>
+      <p class="text-lg opacity-80">Empowering a circular fashion economy through artificial intelligence, community sharing, and rewarding sustainability.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- Feature 1: AI DIY -->
+      <div class="card bg-base-200 shadow-xl hover:-translate-y-1 transition-transform border border-base-300">
+        <div class="card-body">
+          <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-4 text-primary">
+            <i data-lucide="sparkles" class="w-8 h-8"></i>
+          </div>
+          <h3 class="card-title text-2xl mb-2">AI-Powered DIY Upcycling</h3>
+          <p class="opacity-80 leading-relaxed">Upload 3 images (front, back, close-up) of your old clothes. Using advanced <strong>NVIDIA NIM / Qwen Vision LLM</strong>, we analyze the fabric type and condition to generate personalized easy, medium, and hard step-by-step DIY upcycling ideas.</p>
+        </div>
+      </div>
+
+      <!-- Feature 2: Community -->
+      <div class="card bg-base-200 shadow-xl hover:-translate-y-1 transition-transform border border-base-300">
+        <div class="card-body">
+          <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-4 text-primary">
+            <i data-lucide="users" class="w-8 h-8"></i>
+          </div>
+          <h3 class="card-title text-2xl mb-2">Community Hub</h3>
+          <p class="opacity-80 leading-relaxed">Connect with fellow upcyclers! Share your completed DIY projects, showcase your creativity, exchange tips, and get inspired by innovative ideas submitted by the active Faishon community.</p>
+        </div>
+      </div>
+
+      <!-- Feature 3: Donation & Coins -->
+      <div class="card bg-base-200 shadow-xl hover:-translate-y-1 transition-transform border border-base-300">
+        <div class="card-body">
+          <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-4 text-primary">
+            <i data-lucide="gift" class="w-8 h-8"></i>
+          </div>
+          <h3 class="card-title text-2xl mb-2">Donate & Earn</h3>
+          <p class="opacity-80 leading-relaxed">Give your unworn clothes a second life. Donate via convenient pickup or drop-off hubs and earn <strong>Faishon Coins</strong> to incentivize and reward your sustainable choices.</p>
+        </div>
+      </div>
+
+      <!-- Feature 4: Shop -->
+      <div class="card bg-base-200 shadow-xl hover:-translate-y-1 transition-transform border border-base-300">
+        <div class="card-body">
+          <div class="w-14 h-14 bg-primary/20 rounded-xl flex items-center justify-center mb-4 text-primary">
+            <i data-lucide="shopping-bag" class="w-8 h-8"></i>
+          </div>
+          <h3 class="card-title text-2xl mb-2">Upcycled Shop</h3>
+          <p class="opacity-80 leading-relaxed">A full e-commerce experience! Browse and purchase professionally upcycled products. Pay securely with real money or redeem your earned <strong>Faishon Coins</strong> for exclusive discounts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider max-w-6xl mx-auto opacity-30"></div>
+
+
+
+  <!-- How to Upcycle Step-by-Step Section -->
+  <section id="how-it-works" class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-4xl font-bold mb-4">How AI Upcycling Works</h2>
+      <p class="text-lg opacity-80">Transforming your old clothes is as entirely guided by our intelligent Vision LLM. Here's your journey from waste to wearable.</p>
+    </div>
+<div class="flex flex-col gap-4">
+        <div class="card bg-base-200 shadow-md">
+          <div class="card-body p-6 items-center text-center">
+    <!-- Steps Container -->
+    <div class="flex flex-col md:flex-row gap-8 relative items-start justify-between">
+
+      <!-- Decorative Line connecting steps on desktop -->
+      <div class="hidden md:block absolute top-[50px] left-[10%] right-[10%] h-1 bg-gradient-to-r from-primary/20 via-primary to-primary/20 z-0"></div>
+
+      <!-- Step 1 -->
+      <div class="flex-1 flex flex-col items-center text-center relative z-10">
+        <div class="w-24 h-24 rounded-full bg-base-100 border-4 border-primary shadow-xl flex items-center justify-center mb-6">
+          <i data-lucide="camera" class="w-10 h-10 text-primary"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">1. Snap & Upload</h3>
+        <p class="opacity-80">Take 3 clear photos of your old garment: one of the front, one of the back, and a close-up highlighting the fabric texture or any damages.</p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="flex-1 flex flex-col items-center text-center relative z-10">
+        <div class="w-24 h-24 rounded-full bg-base-100 border-4 border-primary shadow-xl flex items-center justify-center mb-6">
+          <i data-lucide="scan-search" class="w-10 h-10 text-primary"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">2. AI Analysis</h3>
+        <p class="opacity-80">Qwen Vision LLM instantly scans your uploads. It securely identifies the garment type, evaluates the material probability, and assesses its condition.</p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="flex-1 flex flex-col items-center text-center relative z-10">
+        <div class="w-24 h-24 rounded-full bg-base-100 border-4 border-primary shadow-xl flex items-center justify-center mb-6 relative">
+          <!-- Subtle ping animation to highlight the "idea" phase -->
+          <span class="absolute inset-0 rounded-full bg-primary opacity-25 animate-ping"></span>
+          <i data-lucide="lightbulb" class="w-10 h-10 text-primary relative z-10"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">3. Generate Ideas</h3>
+        <p class="opacity-80">You get three tailored project ideas categorized by difficulty (Easy, Medium, Hard). Pick the one that fits your skill level!</p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="flex-1 flex flex-col items-center text-center relative z-10">
+        <div class="w-24 h-24 rounded-full bg-base-100 border-4 border-primary shadow-xl flex items-center justify-center mb-6">
+          <i data-lucide="scissors" class="w-10 h-10 text-primary"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-3">4. Do It Yourself!</h3>
+        <p class="opacity-80">Clicking on an idea generates a comprehensive, step-by-step instruction guide so you can cut, stitch, and upcycle your garment perfectly.</p>
+      </div>
+
+    </div>
+          </div></div></div>
+
+  </section>
+
+  <div class="divider max-w-6xl mx-auto opacity-30"></div>
+
+
+
+    <!-- Tech Stack Section -->
+
+  <section id="tech-stack" class="py-20 px-6 max-w-7xl mx-auto w-full">
+
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-4xl font-bold mb-4">Powered By</h2>
+      <p class="text-lg opacity-80">Built with a modern, robust technology stack tailored for performance and AI capabilities.</p>
+    </div>
+              <div class="flex flex-col gap-4 items-center text-centerz">
+        <div class="card bg-base-200 shadow-md">
+          <div class="card-body p-6 items-center text-center">
+    <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto items-center">
+      <div class="badge badge-lg badge-outline py-5 px-6 text-lg shadow-sm"><i data-lucide="wind" class="w-5 h-5 mr-2 text-primary"></i> Tailwind CSS</div>
+      <div class="badge badge-lg badge-outline py-5 px-6 text-lg shadow-sm"><i data-lucide="palette" class="w-5 h-5 mr-2 text-primary"></i> Daisy UI</div>
+      <div class="badge badge-lg badge-outline py-5 px-6 text-lg shadow-sm"><i data-lucide="server" class="w-5 h-5 mr-2 text-primary"></i> Python Django</div>
+      <div class="badge badge-lg badge-outline py-5 px-6 text-lg shadow-sm"><i data-lucide="database" class="w-5 h-5 mr-2 text-primary"></i> Postgres</div>
+      <div class="badge badge-lg badge-outline py-5 px-6 text-lg shadow-sm"><i data-lucide="cloud" class="w-5 h-5 mr-2 text-primary"></i> Cloudinary</div>
+      <div class="badge badge-primary badge-lg py-5 px-6 text-lg text-primary-content shadow-sm"><i data-lucide="brain-circuit" class="w-5 h-5 mr-2"></i> Qwen VLM</div>
+    </div>
+          </div></div></div>
+  </section>
+
+  <div class="divider max-w-6xl mx-auto opacity-30"></div>
+
+  <!-- Contact Us Section -->
+  <section id="contact" class="py-20 px-6 max-w-7xl mx-auto w-full">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-4xl font-bold mb-4">Get in Touch</h2>
+      <p class="text-lg opacity-80">Whether you want to partner with us, ask about your order, or donate your old clothes to our circular system, we'd love to hear from you.</p>
+    </div>
+
+    <div class="flex flex-col md:flex-row gap-8 justify-center items-stretch max-w-5xl mx-auto">
+
+      <!-- Contact Info Cards -->
+      <div class="flex flex-col gap-4 md:w-1/3">
+        <div class="card bg-base-200 shadow-md">
+          <div class="card-body p-6 items-center text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-primary mb-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+            </svg>
+            <h3 class="card-title text-lg">Email Us</h3>
+            <p class="text-sm opacity-70">support@faishon.tech</p>
+          </div>
+        </div>
+
+        <div class="card bg-base-200 shadow-md">
+          <div class="card-body p-6 items-center text-center">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-primary mb-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+            </svg>
+            <h3 class="card-title text-lg">Reach Us</h3>
+            <p class="text-sm opacity-70">123 Eco District, NY 10001<br>Open Mon-Fri, 10am-5pm</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="card bg-base-200 shadow-xl md:w-2/3">
+        <div class="card-body">
+          <form class="space-y-4">
+            <div class="flex flex-col md:flex-row gap-4">
+              <div class="form-control flex-1">
+                <label class="label"><span class="label-text">Name</span></label>
+                <input type="text" placeholder="Aarav Sharma" class="input input-bordered focus:input-primary w-full" />
+              </div>
+              <div class="form-control flex-1">
+                <label class="label"><span class="label-text">Email</span></label>
+                <input type="email" placeholder="aarav.sharma@example.com" class="input input-bordered focus:input-primary w-full" />
+              </div>
+            </div>
+
+            <div class="form-control">
+              <label class="label"><span class="label-text">Subject</span></label>
+              <select class="select select-bordered focus:select-primary w-full">
+                <option disabled selected>Choose a topic</option>
+                <option>General Inquiry</option>
+                <option>Order Support</option>
+                <option>Bulk Donations / Upcycling</option>
+                <option>Press / Partnerships</option>
+              </select>
+            </div>
+
+            <div class="form-control">
+              <label class="label"><span class="label-text">Message</span></label>
+              <textarea class="textarea textarea-bordered focus:textarea-primary h-32 w-full" placeholder="Tell us what's on your mind..."></textarea>
+            </div>
+
+            <div class="form-control mt-6">
+              <button class="btn btn-primary w-full">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="fixed bottom-4 right-4 z-50">
+<div class="fab">
+  <label class="swap swap-rotate bg-base-100 shadow-xl rounded-full p-2.5 hover:scale-110 transition-transform">
+  <!-- this hidden checkbox controls the state -->
+  <input type="checkbox" class="theme-controller" value="forest" />
+
+  <!-- sun icon -->
+  <svg
+    class="swap-off h-6 w-6 fill-current"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24">
+    <path
+      d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+  </svg>
+
+  <!-- moon icon -->
+  <svg
+    class="swap-on h-6 w-6 fill-current"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 24 24">
+    <path
+      d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+  </svg>
+</label>
+</div></div>
+
+
+<script src="{% static 'js/three-hero.js' %}" type="module"></script>
+
+<!-- Footer -->
+<footer class="footer footer-horizontal footer-center bg-base-300 text-base-content p-10">
+  <aside>
+    <p class="text-2xl font-bold tracking-tighter  relative z-[70]">fAishon</p>
+    <p class="font-bold">
+      AI-Powered Sustainable Fashion
+    </p>
+    <p>Copyright © 2026 - All right reserved</p>
+  </aside>
+</footer>
+
+<script src="{% static 'js/theme.js' %}"></script>
+<script src="{% static 'js/landing.js' %}"></script>
+
+</body>
+</html>

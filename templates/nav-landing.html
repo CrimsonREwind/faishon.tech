@@ -1,0 +1,25 @@
+<!-- Transparent Navigation Bar -->
+<nav class="navbar absolute top-0 w-full z-[70] px-4 sm:px-8 py-4 bg-transparent ">
+    <div class="flex-1">
+        <a href="{% url 'landing' %}" class="btn btn-ghost text-2xl font-bold tracking-tighter uppercase relative z-[70]">faishon</a>
+    </div>
+    <!-- Desktop Nav -->
+  <div class="hidden lg:flex flex-1 justify-center relative z-[70]">
+        <ul class="menu menu-horizontal px-1 font-medium text-lg">
+            <li><a href="{% url 'landing' %}">Home</a></li>
+            <li><a href="{% url 'landing' %}#sustainability">Sustainability</a></li>
+            <li><a href="{% url 'landing' %}">Features</a></li>
+            <li><a href="{% url 'landing' %}#contact">Contact</a></li>
+        </ul>
+  </div>
+  <div class="hidden lg:flex flex-1 justify-end relative z-[70]">
+      <a href="{% url 'login' %}" class="btn btn-ghost btn-sm px-6 uppercase tracking-wider h-10 mt-1 mr-4">Log in</a>
+      <a href="{% url 'signup' %}" class="btn btn-primary btn-sm px-6 uppercase tracking-wider h-10 mt-1">Sign up</a>
+    </div>
+    <!-- Mobile Nav Toggle -->
+  <div class="flex-1 flex justify-end lg:hidden relative z-[70]">
+        <button id="mobile-menu-btn" class="btn btn-square btn-ghost">
+            <i data-lucide="menu" id="mobile-menu-icon" class="w-8 h-8"></i>
+        </button>
+    </div>
+</nav>
