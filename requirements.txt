@@ -16,6 +16,8 @@ idna==3.11
 importlib_metadata==8.7.1
 invoke==2.2.1
 mistralai==1.12.4
+numpy==2.4.4
+opencv-python==4.13.0.92
 opentelemetry-api==1.39.1
 opentelemetry-exporter-otlp-proto-common==1.39.1
 opentelemetry-exporter-otlp-proto-http==1.39.1
@@ -23,9 +25,11 @@ opentelemetry-proto==1.39.1
 opentelemetry-sdk==1.39.1
 opentelemetry-semantic-conventions==0.60b1
 packaging==26.0
+pillow==12.2.0
 protobuf==6.33.5
 pydantic==2.12.5
 pydantic_core==2.41.5
+pytesseract==0.3.13
 python-dateutil==2.9.0.post0
 python-dotenv==1.2.1
 PyYAML==6.0.3
